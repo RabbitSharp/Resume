@@ -1,0 +1,219 @@
+\documentclass[singlesided,
+               %doublesided,
+               paper=a4,
+               fontsize=10pt
+              ]{resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set language
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\entrue
+\detrue
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\highlightwidth{8cm}
+\setlength\headerheight{4cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
+\setlength\marginleft{1cm}
+\setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
+\setlength\margintop{1cm}
+\setlength\marginbottom{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\setmainfont{Carlito}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{highlightbarcolor}{lightgray}
+\colorlet{headerbarcolor}{darkgray}
+
+\colorlet{headerfontcolor}{white}
+\colorlet{accent}{the-green}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\name{Gimli}
+\tagline{Leidenschaftlicher Möhrenvernichter und Fan von weichen Teppichen mit Hang zur Selbstdarstellung}
+\photo[round]{Profile.jpg}{\dimexpr \headerheight-\marginbottom}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
+
+\makeheader
+
+\highlightbar{
+
+    \section{\headlineContact}
+    
+	\de{\age{06.11.2018}}
+    \email{gimli@icarrot.com}
+    \phone{+49 123 4567890}
+    \location{Warren 21, 12345 Bunnheaven}
+    \vspace{0.5em}
+    %\homepage{resume.carroteers.de}{https://carroteers.de}
+    \github{@RabbitSharp}{https://github.com/RabbitSharp}
+	\linkedin{Gimli}{https://www.linkedin.com/in/gimli-a123b456/}
+    \xing{Gimli}{https://www.xing.com/profile/gimli}
+
+    
+    \section{\headlineSkillsHighlight}
+    
+    \skillsection{Futtern}
+    \skill{Knusperkissen}{5}
+    \skill{Kohlrabiblätter}{5}
+    \skill{Möhren}{4}
+	\skill{Erbsenflocken}{4}
+    
+    \vspace{0.5em}
+    \skillsection{Enspannen}
+    \skill{Wälzen}{5}
+    \skill{Dösen}{5}
+    \skill{Yoga}{4}
+	\bigskip
+    
+    \section{\headlineLanguages}
+		
+    \skill{Multilingual}{5}
+	\bigskip
+        
+    \section{\headlineCertificates}
+    \simpleskill{Certified Professional Feel-Good Management}
+
+}
+\mainbar{
+   
+    \section[\faGears]{\headlineWork}
+    \job{03/2019 - heute}
+        {Carroteers, Hamburg}
+        {Feel-Good Manager}
+        {}
+    \job{02/2019 - heute}
+		{Carroteers, Hamburg}
+        {Grünzeugvernichter}
+        {aller Art}
+		\medskip
+	% This is taken from AltaCV
+    % see https://github.com/liantze/AltaCV for details
+	\wheelchart{1.5cm}{0.5cm}{% outer and inner diameter
+		% comma-separated list of fraction of 24 / line length / color / label here, the color is shades of the accent color
+        2/8em/accent!40/Feel-Good Manager,
+        2/8em/accent!80/Grünzeugvernichter
+	}
+    
+    \section[\faMortarBoard]{\headlineUniversity}
+    \job{01/2019 - 02/2019}
+        {Bauernhof Hetlingen}
+        {Gute Laune Diplom}
+        {Studiengang Glück}
+				
+	\section[\faBook]{\headlineEducation} %\en{Education}\de{Schulbildung}
+    \job{11/2018 - 12/2018}
+        {Bauernhof Hetlingen}
+        {Kleine Reife}
+        {}
+}
+\makebody
+\clearpage
+
+
+\pagestyle{highlightmain}
+\highlightbar{
+	\section{\headlineSkills}
+	\subsection{Futtern}
+		\smallskip % additional skip because tag outlines use up space
+		\taghighlight{Knusperkissen}
+		\taghighlight{Dill}
+    	\taghighlight{Kohlrabiblätter}
+		\taghighlight{Möhren}
+    	\taghighlight{Erbsenflocken}
+		\taghighlight{Petersilie}
+		\taghighlight{Sellerie}
+		\bigskip
+		
+	\subsection{Entspannen}
+		\smallskip
+		\taghighlight{Wälzen}
+		\taghighlight{Dösen}
+		\taghighlight{Yoga}
+		\taghighlight{Schlafen}
+		\taghighlight{Meditieren}
+		\bigskip
+	
+	\subsection{Dienstleistungen}
+		\smallskip
+		\taghighlight{Performance Kunst}
+		\taghighlight{Nasenschlecker}
+		\taghighlight{Betthupferle}
+		\taghighlight{Pep Talk}
+		\bigskip
+		
+		%Tags must be ordered by hand with newlines to get a nice layout, especially for long tags.
+}
+\mainbar{
+
+	\section{\headlineProjects}
+	\project{How To Train Your Human}{Carroteers}{03/2019 -- heute}{Dienstleistung}{Trainer}{5 -- 6}{\href{https://carroteers.de}{carroteers.de}}
+	\projectdesc
+	{diverse Suggestions Techniken}
+	{Konzeption einer Anleitung zum Training für Zweibeiner}
+	
+	\project{Mission Winterspeck}{Carroteers}{10/2019 -- 03/2020}{Dienstleistung}{Macher}{1}{}
+	\projectdesc
+	{Karotten, Knusperkissen, Banane}
+	{Erreichung eines Gewichtszieles}
+		
+}
+\makebody
+\clearpage
+
+
+\pagestyle{highlightmain}
+\highlightbar{ 
+
+	\section{\headlineRolesAndIndustries}
+	\skillsection{Rollen}
+	\smallskip
+	\wheelchart{1.2cm}{0.5cm}{% outer and inner diameter
+		% comma-separated list of fraction of 24 / line length / color / label here, the color is shades of the accent color
+		5/2.6em/accent/Trainer, 
+		4/2.6em/accent!60/Macher,
+		3/4.5em/accent!40/Yogalehrer,
+		12/3em/accent!80/Feel-Good Manager
+	}
+	\bigskip
+	
+	\skillsection{Branchenerfahrung}
+	\smallskip
+	\wheelchart{1.2cm}{0.5cm}{
+		4/5em/accent!40/Dienstleistung, 
+		20/4em/accent!80/Futterindustrie
+	}
+		
+}
+\mainbar{
+	\project{Operation Flausch}{Carroteers}{09/2019 -- heute}{Dienstleistung}{Macher}{1}{}
+	\projectdesc
+	{Fellpflege, Erbsenflocken, Knusperkissen, Teppiche}
+	{Optimierung des FPI (Flausch Performance Indikator)}
+
+}
+\makebody
+
+\end{document}
+
