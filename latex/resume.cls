@@ -296,10 +296,6 @@
 \newcommand{\ads}[2]{\infofield{\aiADS}{\href{#2}{#1}}}
 \newcommand{\xing}[2]{\infofield{\faXing}{\href{#2}{#1}}}
 \newcommand{\age}[1]{\infofield{\faDotCircleO}{#1}}
-%\faCalendar
-%\faDotCircleO
-%\faRocket
-%\faStreetView
 
 % highlight bar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -556,107 +552,7 @@
 \RequirePackage{hyperref}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MULTI LANGUAGE STUFF
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newif\ifen
-\newif\ifde
-
-\newcommand{\en}[1]{\ifen#1\fi}
-\newcommand{\de}[1]{\ifde#1\fi}
-
-\newcommand{\headlineWork}{%
-  \en{Work history}%
-  \de{Berufliche Laufbahn}%
-}
-
-%Personal Details
-\newcommand{\headlineContact}{%
-  \en{Contact} %
-  \de{Persönliche Daten}%
-}
-
-\newcommand{\headlineSkillsHighlight}{%
-  \en{Skills - Highlight}%
-  \de{Fachwissen - Highlight}%
-}
-
-\newcommand{\headlineSkills}{%
-  \en{Skills}%
-  \de{Fachwissen}%
-}
-
-\newcommand{\headlineProgramming}{%
-  \en{Programming}%
-  \de{Programmiersprachen}%
-}
-
-\newcommand{\headlineLanguages}{%
-  \en{Languages}%
-  \de{Sprachen}%
-}
-
-\newcommand{\headlineCertificates}{%
-  \en{Certificates}%
-  \de{Zertifikate}%
-}
-
-\newcommand{\headlineUniversity}{%
-  \en{University}%
-  \de{Studium}%
-}
-
-\newcommand{\headlineEducation}{%
-  \en{Education}%
-  \de{Schulbildung}%
-}
-
-\newcommand{\headlineProjects}{%
-  \en{Projects}%
-  \de{Projekte}%
-}
-
-\newcommand{\headlineProjectSum}{%
-  \en{Project summary}%
-  \de{Projektthema}%
-}
-
-\newcommand{\headlineSoftwareEnv}{%
-  \en{Software environment}%
-  \de{Softwareumgebung}%
-}
-
-\newcommand{\headlineDatabase}{%
-  \en{Databases}%
-  \de{Datenbanken}%
-}
-
-\newcommand{\headlineDevelopmentEnv}{%
-  \en{Development environment}%
-  \de{Entwicklungsumgebung}%
-}
-
-\newcommand{\headlineInfra}{%
-  \en{Infrastructure}%
-  \de{Infrastruktur}%
-}
-
-\newcommand{\headlineMisc}{%
-  \en{Miscellaneous}%
-  \de{Sonstiges}%
-}
-
-\newcommand{\headlineIndustryFinance}{%
-  \en{Financial services}%
-  \de{Finanzdienstleistung}%
-}
-
-\newcommand{\headlineIndustryManuf}{%
-  \en{manufacturing industry}%
-  \de{Fertigungsindustrie}
-}
-
-\newcommand{\headlineRolesAndIndustries}{%
-  \en{Roles and industries}%
-  \de{Rollen und Branchen}%
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MULTI LANGUAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{resume-translations}
