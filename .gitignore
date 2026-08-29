@@ -1,0 +1,7 @@
+out/
+.venv/
+__pycache__/
+*.pyc
+.idea/
+missfont.log
+mfput.log

@@ -1,0 +1,212 @@
+((= ---------------------------------------------------------------------- =))
+((= Jinja2 template turning the YAML content + style into a LaTeX document. =))
+((=                                                                         =))
+((= Delimiters are LaTeX friendly: statements are wrapped in round-bracket  =))
+((= plus asterisk pairs, expressions in triple round brackets and comments  =))
+((= in round-bracket plus equals-sign pairs - see the markup below.         =))
+((=                                                                         =))
+((= Available context: style, content, header, sections, labels, lang.      =))
+((= The tex filter escapes LaTeX special characters.                        =))
+((= ---------------------------------------------------------------------- =))
+((* macro contact_item(item) *))
+((* if item.type == 'birthdate' *))
+    \age{((( item.value|tex )))}
+((* elif item.type in ('email', 'phone', 'location', 'address') *))
+    \((( item.type ))){((( item.value|tex )))}
+((* else *))
+    \((( item.type ))){((( item.label|tex )))}{((( item.url )))}
+((* endif *))
+((* endmacro *))
+((* macro block_contact(s) *))
+    \section{((( s.title|tex )))}
+
+((* for group in s.groups *))
+((* if not loop.first *))
+    \vspace{0.5em}
+((* endif *))
+((* for item in group['items'] *))
+    ((( contact_item(item)|trim )))
+((* endfor *))
+((* endfor *))
+((* endmacro *))
+((* macro block_rated_skills(s) *))
+    \section{((( s.title|tex )))}
+
+((* for group in s.groups *))
+((* if not loop.first *))
+    \vspace{0.5em}
+((* endif *))
+((* if group.get('name') *))
+    \skillsection{((( group.name|tex )))}
+((* endif *))
+((* for skill in group.skills *))
+    \skill{((( skill.name|tex )))}{((( skill.level )))}
+((* endfor *))
+((* endfor *))
+    \bigskip
+((* endmacro *))
+((* macro block_simple_skills(s) *))
+    \section{((( s.title|tex )))}
+
+((* for item in s['items'] *))
+    \simpleskill{((( item|tex )))}
+((* endfor *))
+((* endmacro *))
+((* macro block_jobs(s) *))
+((* if s.get('title') *))
+    \section((* if s.get('icon') *))[\((( s.icon )))]((* endif *)){((( s.title|tex )))}
+
+((* endif *))
+((* for job in s.entries *))
+    \job{((( job.period|tex )))}
+        {((( job.place|tex )))}
+        {((( job.position|tex )))}
+        {((( job.note|default('', true)|tex )))}
+((* endfor *))
+((* endmacro *))
+((* macro block_wheelchart(s) *))
+((* if s.get('title') *))
+    \section{((( s.title|tex )))}
+
+((* endif *))
+((* if s.get('subtitle') *))
+    \skillsection{((( s.subtitle|tex )))}
+    \smallskip
+((* endif *))
+((* if not s.get('title') and not s.get('subtitle') *))
+    \medskip
+((* endif *))
+    ((= comma separated list of value / label width / color / label =))
+    \wheelchart{((( s.outer )))}{((( s.inner )))}{%
+((* for slice in s.slices *))
+        ((( slice.value )))/((( slice.width )))/((( slice.get('shade')|shade )))/((( slice.label|tex )))((( "," if not loop.last )))
+((* endfor *))
+    }
+((* if s.get('subtitle') *))
+    \bigskip
+((* endif *))
+((* endmacro *))
+((* macro block_tag_groups(s) *))
+    \section{((( s.title|tex )))}
+
+((* for group in s.groups *))
+    \subsection{((( group.name|tex )))}
+        ((= additional skip because the tag outlines use up space =))
+        \smallskip
+((* for tag in group.tags *))
+        \taghighlight{((( tag|tex )))}
+((* endfor *))
+        \bigskip
+
+((* endfor *))
+((* endmacro *))
+((* macro block_projects(s) *))
+((* if s.get('title') *))
+    \section((* if s.get('icon') *))[\((( s.icon )))]((* endif *)){((( s.title|tex )))}
+
+((* endif *))
+((* for p in s.entries *))
+    \project{((( p.title|tex )))}{((( p.client|default('', true)|tex )))}{((( p.period|default('', true)|tex )))}{((( p.industry|default('', true)|tex )))}{((( p.role|default('', true)|tex )))}{((( p.team|default('', true)|tex )))}{((* if p.get('link') *))\href{((( p.link.url )))}{((( p.link.label|tex )))}((* endif *))}
+    \projectdesc
+    {((( p.environment|default('', true)|tex )))}
+    {((( p.summary|default('', true)|tex )))}
+
+((* endfor *))
+((* endmacro *))
+((* macro block_raw(s) *))
+((( s.latex )))
+((* endmacro *))
+((* macro render_block(s) *))
+((* if s.type == 'contact' *))((( block_contact(s) )))
+((* elif s.type == 'rated-skills' *))((( block_rated_skills(s) )))
+((* elif s.type == 'simple-skills' *))((( block_simple_skills(s) )))
+((* elif s.type == 'jobs' *))((( block_jobs(s) )))
+((* elif s.type == 'wheelchart' *))((( block_wheelchart(s) )))
+((* elif s.type == 'tag-groups' *))((( block_tag_groups(s) )))
+((* elif s.type == 'projects' *))((( block_projects(s) )))
+((* elif s.type == 'raw' *))((( block_raw(s) )))
+((* endif *))
+((* endmacro *))
+((= ---------------------------------------------------------------------- =))
+((= document                                                                =))
+((= ---------------------------------------------------------------------- =))
+% !!! GENERATED FILE - DO NOT EDIT !!!
+% Produced by builder/build.py from content/((( lang ))).yaml and style/style.yaml.
+% Edit those files instead and rebuild.
+
+\documentclass[((( style.document.sides ))),
+               paper=((( style.document.paper ))),
+               fontsize=((( style.document.fontsize )))
+              ]{resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TRANSLATED LABELS USED INSIDE resume.cls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+((* for macro_name, value in label_macros *))
+\newcommand{\((( macro_name )))}{((( value|tex )))}
+((* endfor *))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GEOMETRY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+((* for key, value in style.geometry|dictsort *))
+\setlength\((( key ))){((( value )))}
+((* endfor *))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\setmainfont{((( style.fonts.main )))}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+((* for line in color_definitions *))
+((( line )))
+((* endfor *))
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\name{((( header.name|tex )))}
+\tagline{((( header.tagline|tex )))}
+((* if style.get('photo') and style.photo.get('file') *))
+((= make the photo exactly match the header, using the margins as padding =))
+\photo[((( style.photo.get('shape')|default('round', true) )))]{((( style.photo.file )))}{\dimexpr \headerheight-\marginbottom}
+((* endif *))
+
+((* for page in style.layout.pages *))
+((* if not loop.first *))
+
+\pagestyle{((( page.pagestyle|default('highlightmain', true) )))}
+((* endif *))
+((* if page.get('header') *))
+
+\makeheader
+((* endif *))
+
+\highlightbar{
+((* for id in page.highlight|default([], true) *))
+((( render_block(sections[id]) )))
+((* endfor *))
+}
+\mainbar{
+((* for id in page.main|default([], true) *))
+((( render_block(sections[id]) )))
+((* endfor *))
+}
+\makebody
+((* if not loop.last *))
+\clearpage
+((* endif *))
+((* endfor *))
+
+\end{document}

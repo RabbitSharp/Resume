@@ -1,0 +1,63 @@
+# Style and layout definition.
+#
+# This file controls *how* the CV looks and where each content section is
+# placed. The content itself lives in content/<lang>.yaml.
+
+document:
+  # LaTeX engine used to compile the generated document.
+  # Supported: xelatex, lualatex. Can be overridden with --engine.
+  engine: xelatex
+
+  # singlesided -> highlight bar always on the left
+  # doublesided -> highlight bar alternates between left and right
+  sides: singlesided
+  paper: a4
+  fontsize: 10pt
+
+fonts:
+  # Any font installed in the build image. Carlito ships with the
+  # fonts-crosextra-carlito package.
+  main: Carlito
+
+geometry:
+  highlightwidth: 8cm
+  # margintop is added to this value, i.e. the header bar is 5cm high
+  headerheight: 4cm
+  marginleft: 1cm
+  marginright: 1cm
+  margintop: 1cm
+  marginbottom: 1cm
+
+colors:
+  # Values are either color names defined in latex/resume.cls or hex
+  # literals written as "#RRGGBB".
+  highlightbarcolor: lightgray
+  headerbarcolor: darkgray
+  headerfontcolor: white
+  accent: the-green
+  heading: black
+  emphasis: black
+  body: black
+
+photo:
+  file: assets/Profile.jpg
+  # round or square
+  shape: round
+
+layout:
+  # Every page lists the ids of the content sections rendered in the
+  # highlight bar and in the main bar. Ids refer to keys under "sections"
+  # in the content files.
+  pages:
+    - header: true
+      pagestyle: headerhighlightmain
+      highlight: [contact, skills-highlight, languages, certificates]
+      main:      [work, work-wheel, university, education]
+
+    - pagestyle: highlightmain
+      highlight: [skills-tags]
+      main:      [projects-main]
+
+    - pagestyle: highlightmain
+      highlight: [roles-wheel, industries-wheel]
+      main:      [projects-secondary]
