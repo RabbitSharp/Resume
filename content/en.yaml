@@ -67,10 +67,17 @@ sections:
       - period: "03/2019 - @{today}"
         place: "Carroteers, Hamburg"
         position: Feel-Good Manager
+        bullets:
+          - Daily mood elevation of the two-legged team
+          - Quality assurance in the crunchy pillow department
+          - Independent occupation of all carpeted areas
       - period: "02/2019 - @{today}"
         place: "Carroteers, Hamburg"
         position: Greenery Destroyer
         note: of all kinds
+        bullets:
+          - Professional disposal of parsley, dill and kohlrabi leaves
+          - Increased destruction throughput by 30 %
 
   work-wheel:
     type: wheelchart

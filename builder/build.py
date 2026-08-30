@@ -133,6 +133,8 @@ def validate(content, style, origin):
                 )
         if block_type == "contact":
             validate_contact(section, section_id, origin)
+        elif block_type == "jobs":
+            validate_jobs(section, section_id, origin)
         elif block_type == "wheelchart":
             validate_wheelchart(section, section_id, origin)
 
@@ -177,6 +179,26 @@ def validate_contact(section, section_id, origin):
             else:
                 known = ", ".join(sorted(CONTACT_VALUE_TYPES | CONTACT_LINK_TYPES))
                 raise ContentError(f"{where}: unknown contact item type '{item_type}'. Known: {known}")
+
+
+def validate_jobs(section, section_id, origin):
+    for index, entry in enumerate(section["entries"], start=1):
+        where = f"{origin}: section '{section_id}' entry {index}"
+        if not isinstance(entry, dict):
+            raise ContentError(f"{where}: job entry must be a mapping")
+        for key in ("period", "place", "position"):
+            if not entry.get(key):
+                raise ContentError(f"{where}: job entry is missing '{key}'")
+        bullets = entry.get("bullets")
+        if bullets is None:
+            continue
+        if not isinstance(bullets, list):
+            raise ContentError(f"{where}: 'bullets' must be a list of strings")
+        for bullet_index, bullet in enumerate(bullets, start=1):
+            if not isinstance(bullet, str) or not bullet.strip():
+                raise ContentError(
+                    f"{where}: bullet {bullet_index} must be a non-empty string"
+                )
 
 
 def validate_wheelchart(section, section_id, origin):

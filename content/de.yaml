@@ -70,10 +70,17 @@ sections:
       - period: "03/2019 - @{today}"
         place: "Carroteers, Hamburg"
         position: Feel-Good Manager
+        bullets:
+          - Tägliche Stimmungsaufhellung des Zweibeiner-Teams
+          - Qualitätssicherung im Bereich Knusperkissen
+          - Eigenverantwortliche Belegung sämtlicher Teppichflächen
       - period: "02/2019 - @{today}"
         place: "Carroteers, Hamburg"
         position: Grünzeugvernichter
         note: aller Art
+        bullets:
+          - Fachgerechte Entsorgung von Petersilie, Dill und Kohlrabiblättern
+          - Steigerung der Vernichtungsgeschwindigkeit um 30 %
 
   work-wheel:
     type: wheelchart

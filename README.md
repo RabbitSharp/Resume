@@ -62,6 +62,8 @@ sections:
         place: "Carroteers, Hamburg"
         position: Feel-Good Manager
         note: ""            # optional
+        bullets:            # optional, rendered as an indented bullet list
+          - Grünzeug in messbaren Mengen vernichtet
 ```
 
 `@{key}` is replaced by the translation of `key` for the language being built. References may be
@@ -76,7 +78,7 @@ error message.
 | `rated-skills` | `title`, `groups[].skills[]` (`name`, `level` 1–5) | Skill name plus a five-dot rating |
 | `simple-skills` | `title`, `items[]` | Plain bold entries, e.g. certificates |
 | `tag-groups` | `title`, `groups[]` (`name`, `tags[]`) | Rounded, outlined tags per subsection |
-| `jobs` | `entries[]` (`period`, `place`, `position`, `note?`) | Two-column CV entries; `title` and `icon` optional |
+| `jobs` | `entries[]` (`period`, `place`, `position`, `note?`, `bullets?`) | Two-column CV entries; `title` and `icon` optional. `bullets` renders an indented bullet list below the entry |
 | `projects` | `entries[]` (`title`, `client`, `period`, `industry`, `role`, `team`, `link?`, `environment`, `summary`) | Project block with metadata icons and description |
 | `wheelchart` | `outer`, `inner`, `slices[]` (`value`, `width`, `label`, `shade?`) | Donut chart; `shade` 1–100 shades the accent color |
 | `raw` | `latex` | Escape hatch for arbitrary LaTeX |

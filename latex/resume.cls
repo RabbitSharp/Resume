@@ -363,12 +363,16 @@
 % format job/school list
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% set length of date/place column versus position column in fraction of linewidth before linewidth gets redefined in minipages
+% set length of date/place column versus position column in fraction of the
+% width of the surrounding bar; both lengths are computed inside \job so the
+% macro works in the main bar as well as in the narrower highlight bar
 \newlength{\jobdateplacelength}
 \newlength{\jobpositionlength}
-\setlength{\jobdateplacelength}{0.4\linewidth}
-\setlength{\jobpositionlength}{0.6\linewidth}
+\newlength{\jobcolumngap}
+\setlength{\jobcolumngap}{1em}
 \newcommand{\job}[4]{%
+    \setlength{\jobdateplacelength}{0.4\linewidth}%
+    \setlength{\jobpositionlength}{\dimexpr \linewidth-\jobdateplacelength-\jobcolumngap}%
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
         \footnotesize
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
@@ -376,7 +380,7 @@
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap date in minipage to allow multi-line dates
-            #1
+            \raggedright #1
         \end{minipage}%
         \par
         \vspace{0.1em}
@@ -385,15 +389,33 @@
         \end{minipage}%
         \hspace{0.5em}%
         \begin{minipage}[t]{\dimexpr \jobdateplacelength-3mm-0.5em}% wrap place in minipage to allow multi-line places
-            #2
+            \raggedright #2
         \end{minipage}%
     \end{minipage}%
+    \hspace{\jobcolumngap}%
     \begin{minipage}[t]{\jobpositionlength}% minipage for position
-        {\large \color{emphasis} #3}
+        \raggedright {\large \color{emphasis} #3}
     \end{minipage}%
     \ifstrequal{#4}{}{}{\par \vspace{0.1em} \footnotesize #4}
     \par\normalsize
     \vspace{0.5em}
+}
+
+% optional bullet list with the details of the preceding \job entry;
+% the item text is indented to line up with the date and place text above
+\newlength{\jobbulletindent}
+\setlength{\jobbulletindent}{3mm}
+\addtolength{\jobbulletindent}{0.5em}
+\newcommand{\jobbullets}[1]{%
+    \vspace{-0.4em}
+    {\footnotesize
+        \begin{itemize}[leftmargin=\jobbulletindent, label=\textcolor{accent}{\textbullet}]
+            #1
+        \end{itemize}
+        \par
+    }%
+    \normalsize
+    \vspace{0.7em}
 }
 
 

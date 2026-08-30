@@ -62,6 +62,13 @@
         {((( job.place|tex )))}
         {((( job.position|tex )))}
         {((( job.note|default('', true)|tex )))}
+((* if job.get('bullets') *))
+    \jobbullets{%
+((* for bullet in job.bullets *))
+        \item ((( bullet|tex )))
+((* endfor *))
+    }
+((* endif *))
 ((* endfor *))
 ((* endmacro *))
 ((* macro block_wheelchart(s) *))
