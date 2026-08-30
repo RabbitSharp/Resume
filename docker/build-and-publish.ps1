@@ -15,7 +15,7 @@
 #>
 [CmdletBinding()]
 param(
-    [string]$Version = 'v2.0',
+    [string]$Version = 'v2.1',
     [string]$Image = 'rabbitsharp/resume-builder',
     [switch]$SkipPush
 )
