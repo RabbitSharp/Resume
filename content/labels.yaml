@@ -1,0 +1,52 @@
+# Translatable labels shared by all content files.
+#
+# Reference a label from a content file with "@{key}", e.g.  title: "@{work}".
+# References may also be embedded in a longer string, e.g. "03/2019 - @{today}".
+# Every key must provide an entry for each language you build.
+
+# --- section headlines ---------------------------------------------------
+work:                 { de: "Berufliche Laufbahn",     en: "Work History" }
+contact:              { de: "Persönliche Daten",       en: "Contact" }
+skills_highlight:     { de: "Fachwissen - Highlights", en: "Skills - Highlights" }
+skills:               { de: "Fachwissen",              en: "Skills" }
+programming:          { de: "Programmiersprachen",     en: "Programming" }
+languages:            { de: "Sprachen",                en: "Languages" }
+certificates:         { de: "Zertifikate",             en: "Certificates" }
+university:           { de: "Studium",                 en: "University" }
+education:            { de: "Schulbildung",            en: "Education" }
+projects:             { de: "Projekte",                en: "Projects" }
+roles_and_industries: { de: "Rollen und Branchen",     en: "Roles and Industries" }
+roles:                { de: "Rollen",                  en: "Roles" }
+industries:           { de: "Branchenerfahrung",       en: "Industries" }
+databases:            { de: "Datenbanken",             en: "Databases" }
+development_env:      { de: "Entwicklungsumgebung",    en: "Development Environment" }
+infrastructure:       { de: "Infrastruktur",           en: "Infrastructure" }
+methods:              { de: "Methodik",                en: "Methodology" }
+misc:                 { de: "Sonstiges",               en: "Miscellaneous" }
+
+# --- labels used inside resume.cls ---------------------------------------
+# These are emitted as \newcommand definitions in the preamble, so the class
+# file itself stays language agnostic. Do not rename without updating the
+# LABEL_MACROS mapping in builder/build.py.
+project_summary:      { de: "Projektthema",            en: "Project Summary" }
+software_env:         { de: "Softwareumgebung",        en: "Software Environment" }
+
+# --- recurring terms -----------------------------------------------------
+today:                { de: "heute",                   en: "today" }
+year:                 { de: "Jahr",                    en: "Year" }
+years:                { de: "Jahre",                   en: "Years" }
+months:               { de: "Monate",                  en: "Months" }
+
+# --- role names ----------------------------------------------------------
+role_fullstack:       { de: "Fullstack-Entwickler",    en: "Fullstack Developer" }
+role_devops:          { de: "DevOps-Engineer",         en: "DevOps-Engineer" }
+role_project_manager: { de: "Projektleiter",           en: "Project Lead" }
+role_integrator:      { de: "System-Integrator",       en: "Systems Integrator" }
+role_consultant:      { de: "Berater",                 en: "Consultant" }
+role_developer:       { de: "Softwareentwickler",      en: "Software Developer" }
+role_operations:      { de: "IT-Operations",           en: "IT-Operations" }
+role_analyst:         { de: "Systemanalytiker",        en: "Systems Analyst" }
+
+# --- industry names ------------------------------------------------------
+industry_finance:     { de: "Finanzdienstleistung",    en: "Financial Services" }
+industry_manufacture: { de: "Fertigungsindustrie",     en: "Manufacturing Industry" }

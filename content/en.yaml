@@ -1,0 +1,169 @@
+# English CV content.
+#
+# Mirrors content/de.yaml and must use the same section ids, so that the
+# layout map in style/style.yaml applies to both languages.
+
+meta:
+  language: en
+
+header:
+  name: Gimli
+  tagline: >-
+    Passionate carrot destroyer and fan of soft carpets,
+    with a pronounced tendency towards self-presentation
+
+sections:
+
+  # ---------------------------------------------------------------- page 1
+  # Date of birth is intentionally omitted in the English version.
+  contact:
+    type: contact
+    title: "@{contact}"
+    groups:
+      - items:
+          - { type: email,    value: "gimli@icarrot.com" }
+          - { type: phone,    value: "+49 123 4567890" }
+          - { type: location, value: "Warren 21, 12345 Bunnheaven" }
+      - items:
+          # - { type: homepage, label: resume.carroteers.de, url: "https://carroteers.de" }
+          - { type: github,   label: "@RabbitSharp", url: "https://github.com/RabbitSharp" }
+          - { type: linkedin, label: "Gimli", url: "https://www.linkedin.com/in/gimli-a123b456/" }
+          - { type: xing,     label: "Gimli", url: "https://www.xing.com/profile/gimli" }
+
+  skills-highlight:
+    type: rated-skills
+    title: "@{skills_highlight}"
+    groups:
+      - name: Feasting
+        skills:
+          - { name: Crunchy pillows, level: 5 }
+          - { name: Kohlrabi leaves, level: 5 }
+          - { name: Carrots,         level: 4 }
+          - { name: Pea flakes,      level: 4 }
+      - name: Relaxing
+        skills:
+          - { name: Rolling around, level: 5 }
+          - { name: Dozing,         level: 5 }
+          - { name: Yoga,           level: 4 }
+
+  languages:
+    type: rated-skills
+    title: "@{languages}"
+    groups:
+      - skills:
+          - { name: Multilingual, level: 5 }
+
+  certificates:
+    type: simple-skills
+    title: "@{certificates}"
+    items:
+      - Certified Professional Feel-Good Management
+
+  work:
+    type: jobs
+    title: "@{work}"
+    icon: faGears
+    entries:
+      - period: "03/2019 - @{today}"
+        place: "Carroteers, Hamburg"
+        position: Feel-Good Manager
+      - period: "02/2019 - @{today}"
+        place: "Carroteers, Hamburg"
+        position: Greenery Destroyer
+        note: of all kinds
+
+  work-wheel:
+    type: wheelchart
+    outer: 1.5cm
+    inner: 0.5cm
+    slices:
+      - { value: 2, width: 8em, shade: 40, label: Feel-Good Manager }
+      - { value: 2, width: 8em, shade: 80, label: Greenery Destroyer }
+
+  university:
+    type: jobs
+    title: "@{university}"
+    icon: faMortarBoard
+    entries:
+      - period: "01/2019 - 02/2019"
+        place: Hetlingen Farm
+        position: Diploma in Good Mood
+        note: Happiness Studies
+
+  education:
+    type: jobs
+    title: "@{education}"
+    icon: faBook
+    entries:
+      - period: "11/2018 - 12/2018"
+        place: Hetlingen Farm
+        position: Junior Certificate
+
+  # ---------------------------------------------------------------- page 2
+  skills-tags:
+    type: tag-groups
+    title: "@{skills}"
+    groups:
+      - name: Feasting
+        tags: [Crunchy pillows, Dill, Kohlrabi leaves, Carrots, Pea flakes, Parsley, Celery]
+      - name: Relaxing
+        tags: [Rolling around, Dozing, Yoga, Sleeping, Meditating]
+      - name: Services
+        tags: [Performance art, Nose licking, Bedtime treat, Pep talk]
+
+  projects-main:
+    type: projects
+    title: "@{projects}"
+    entries:
+      - title: How To Train Your Human
+        client: Carroteers
+        period: "03/2019 -- @{today}"
+        industry: Services
+        role: Trainer
+        team: "5 -- 6"
+        link: { label: carroteers.de, url: "https://carroteers.de" }
+        environment: various suggestion techniques
+        summary: Design of a guide for training two-legged creatures
+
+      - title: Mission Winter Fat
+        client: Carroteers
+        period: "10/2019 -- 03/2020"
+        industry: Services
+        role: Doer
+        team: "1"
+        environment: Carrots, crunchy pillows, banana
+        summary: Achievement of a weight target
+
+  # ---------------------------------------------------------------- page 3
+  roles-wheel:
+    type: wheelchart
+    title: "@{roles_and_industries}"
+    subtitle: "@{roles}"
+    outer: 1.2cm
+    inner: 0.5cm
+    slices:
+      - { value: 5,  width: 2.6em, shade: 100, label: Trainer }
+      - { value: 4,  width: 2.6em, shade: 60,  label: Doer }
+      - { value: 3,  width: 4.5em, shade: 40,  label: Yoga teacher }
+      - { value: 12, width: 3em,   shade: 80,  label: Feel-Good Manager }
+
+  industries-wheel:
+    type: wheelchart
+    subtitle: "@{industries}"
+    outer: 1.2cm
+    inner: 0.5cm
+    slices:
+      - { value: 4,  width: 5em, shade: 40, label: Services }
+      - { value: 20, width: 4em, shade: 80, label: Pet food industry }
+
+  projects-secondary:
+    type: projects
+    entries:
+      - title: Operation Fluff
+        client: Carroteers
+        period: "09/2019 -- @{today}"
+        industry: Services
+        role: Doer
+        team: "1"
+        environment: Fur care, pea flakes, crunchy pillows, carpets
+        summary: Optimisation of the FPI (Fluff Performance Indicator)
